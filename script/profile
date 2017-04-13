@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function _yarn_profile {
+  local shome="${_yarn_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
+  PATH="$shome/bin:$shome/exec:$PATH"
+
+  YARN_VERSION="${YARN_VERSION:-0.23.1}"
+}
+
+_yarn_profile

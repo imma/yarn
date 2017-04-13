@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function main {
+  local phome="$1"; shift
+  shift; shift
+
+  yarn "$@"
+}
+
+source sub "$0" "$@"
