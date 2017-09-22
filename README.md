@@ -1,1 +1,1 @@
-Visit http://defn.sh/yarn/ or open `docs/index.html`
+content/yarn.md
