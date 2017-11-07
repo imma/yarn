@@ -4,7 +4,20 @@ function main {
   local phome="$1"; shift
   shift; shift
 
+  cd "$phome"
+  local nm_block="${phome##*/}"
+
+  if [[ ! -L yarn.lock ]]; then
+    rsync -ia yarn.lock "${BOARD_PATH}/yarn.lock.${nm_block}" 2>/dev/null || true # TODO clean up
+  fi
+  ln -nfs "${BOARD_PATH}/yarn.lock.${nm_block}" "yarn.lock"
+
   yarn "$@"
+
+  if [[ ! -L yarn.lock ]]; then
+    rsync -ia yarn.lock "${BOARD_PATH}/yarn.lock.${nm_block}"
+  fi
+  ln -nfs "${BOARD_PATH}/yarn.lock.${nm_block}" "yarn.lock"
 }
 
 source sub "$0" "$@"
