@@ -12,6 +12,10 @@ function main {
   fi
   ln -nfs "${BOARD_PATH}/yarn.lock.${nm_block}" "yarn.lock"
 
+  if [[ "$#" == 0 ]]; then
+    set -- install --pure-lockfile
+  fi
+
   yarn "$@"
 
   if [[ ! -L yarn.lock ]]; then
