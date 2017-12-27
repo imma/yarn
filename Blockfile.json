@@ -1,5 +1,8 @@
 {
   "require": [
     "node"
-  ]
+  ],
+  "versions": {
+    "yarn": "yarnpkg/yarn"
+  }
 }
