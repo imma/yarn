@@ -4,6 +4,10 @@ function main {
   local phome="$1"; shift
   shift; shift
 
+	if [[ -f "${DATA}/.slow_as_shit" ]]; then
+		unset XDG_CACHE_HOME
+	fi
+
   cd "$phome"
   local nm_block="${phome##*/}"
 
