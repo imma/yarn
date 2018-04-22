@@ -4,8 +4,8 @@ function _yarn_profile {
   local shome="${_yarn_home:="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
   PATH="$shome/bin:$shome/exec:$PATH"
 
-  if [[ ! -f "${DATA}/.slow_as_shit" ]]; then
-    export YARN_CACHE_FOLDER="${DATA}/cache/yarn"
+  if [[ -n "${XDG_CACHE_HOME:-}" ]]; then
+    export YARN_CACHE_FOLDER="${XDG_CACHE_HOME}/yarn"
   fi
 }
 
