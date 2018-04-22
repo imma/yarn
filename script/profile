@@ -6,6 +6,8 @@ function _yarn_profile {
 
   if [[ -n "${XDG_CACHE_HOME:-}" ]]; then
     export YARN_CACHE_FOLDER="${XDG_CACHE_HOME}/yarn"
+  else
+    unset YARN_CACHE_FOLDER
   fi
 }
 
